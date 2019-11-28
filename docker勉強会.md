@@ -3,21 +3,31 @@
     windows版dockerの話はしません
     Docker for macで動かしています
 
-## コンテナとは
-ひとことで言えば、アプリ部分に最適化された仮想化技術。
+## Dockerとは
 
-従来の仮想化技術に比べて省リソースで爆速に環境を作れる。
+> Dockerは、コンテナと呼ばれるOSレベルの仮想化環境を提供するオープンソースソフトウェアである。  
+> VMware製品などの完全仮想化を行うハイパーバイザ型製品と比べて、ディスク使用量は少なく、
+> 仮想環境 (インスタンス) 作成や起動は速く、性能劣化がほとんどないという利点を持つ。  
+> (Wikipediaより引用)
 
-## なぜDocker?
+![仮想化比較](https://cn.teldevice.co.jp/asset/migration-files/kcf/image/column/compass/20160202/docker01.jpg)   
+参考：https://cn.teldevice.co.jp/column/10509/
+
+- ひとことで言えば、アプリ部分に最適化された仮想化技術。
+
+- 従来の仮想化技術に比べて省リソースで爆速に環境を作れる。
+
+## Docker周りのツール類
 
 |コマンド・ツール|役割|
 |--|--|
 |dockerコマンド|一つのコンテナを操作する、基礎となるコマンド|
-|docker-compose|一つのアプリを構築する（単純なdockerコマンドだけで実現できないもの。複数コンテナ使用、データ永続化など）|
+|docker-compose|一つのアプリを構築する（単純なdockerコマンドだけで実現しにくいもの。複数コンテナ使用、データ永続化など）|
 |dokcer-machine|Dockerを動かす仮想マシンの設定|
 |kubernetes(or docker swarm)|コンテナのクラスタリングや負荷分散等のスケーリング時に使う（大規模用）|
+|Kitematic|DockerをGUIで使えるツール|
 
-今回はdokcerコマンドとdocker-composeの話
+今回は主にdokcerコマンドとdocker-composeの話
   
 
 ## HelloWorld
