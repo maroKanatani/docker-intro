@@ -50,6 +50,12 @@ dockerコンテナの実行
 docker run hello-world
 ```
 
+#### 基本形
+```
+docker run [イメージ名]
+```
+runとイメージ名の間にオプションを挟んでいく
+
 ## MySQLのコンテナを実行する(DockerHubのイメージを利用する①)
 
 MySQL dockerとかで検索すると、
@@ -124,7 +130,44 @@ Pythonが入ってなくともPythonが実行できる・・・！
 
 ## Dockerfileからイメージを作成する
 
+[ここのファイル](https://github.com/Kanatani28/docker-intro/tree/master/dockerfile_sample)を使ってPython×Flaskの実行環境を作ってみましょう。
 
+```
+.
+├── Dockerfile         // これから作るDocker imageの情報が書かれている
+├── requirements.txt   // Pythonで使うライブラリの情報が書かれている(Javaで言うbuild.gradle的な)
+└── sample.py          // Pythonで作成したアプリ（HelloWorldを返すWebアプリ）
+```
+
+### Dockerfile書き方
+
+|命令名|意味|
+|--|--|
+|FROM|ベースにするイメージ名（大体一番上に書く）|
+|WORKDIR|コンテナ内での作業ディレクトリ|
+|COPY|ホストからコンテナへファイルをコピーする|
+|RUN|コマンドを実行する|
+|EXPOSE|コンテナが開放するポートを指定する|
+|CMD|コンテナ起動時に実行するコマンドを設定する|
+
+### docker build
+Dockerfileのある場所で以下のコマンドを実行するとDockerイメージが作成されます。
+```
+docker build -t my-python .
+```
+
+基本形
+```
+docker build [Dockerファイルのある場所]
+```
+
+|オプション|意味|
+|--|--|
+|-t|"名前:タグ"形式でイメージに名前をつける|
+
+```
+docker run --name maro-python -p 5000:5000 -d my-python
+```
 
 ## docker-compose
 
