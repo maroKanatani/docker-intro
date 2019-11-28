@@ -156,7 +156,7 @@ Dockerfileのある場所で以下のコマンドを実行するとDockerイメ�
 docker build -t my-python .
 ```
 
-基本形
+#### 基本形
 ```
 docker build [Dockerファイルのある場所]
 ```
@@ -171,8 +171,9 @@ docker run --name maro-python -p 5000:5000 -d my-python
 
 ## docker-compose
 
-docker pull
 
 
-dockerコマンドでpandocを使う
-dockerコマンドでDBを立てる
+
+VS CodeのRemote Containerってプラグインが結構素敵
+
+dockerコマンドでpandocを使う（使い捨ての良さを活かして）
