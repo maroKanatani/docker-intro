@@ -45,12 +45,12 @@ docker ps -a
 いざHello World
 
 ### docker run
-dockerインスタンスの実行
+dockerコンテナの実行
 ```
 docker run hello-world
 ```
 
-MySQLのインスタンスを実行する
+## MySQLのコンテナを実行する(DockerHubのイメージを利用する)
 
 MySQL dockerとかで検索すると、
 DockerHubにMySQLの公式イメージが見つかるので使い方を確認する
@@ -70,26 +70,43 @@ docker run --name sample_mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 |-e|環境変数を設定する|
 |-d|デタッチドモードで起動する（これ無しだと起動してコンテナが実行された後停止してしまう）|
 
-今立てたインスタンスにsshする
+#### 何が起きたのか
+
+![コンテナができるまで](./img/コンテナができるまで.PNG)
+
+dockerイメージがダウンロードされている
+```
+docker images
+```
+
+### 今立てたコンテナに入ってMySQLを使う
+docker execコマンドを使って今立てたコンテナにsshで入ることができます。
 
 ```
 docker exec -it sample_mysql /bin/bash 
 ```
+
+> docker execはコンテナの中でコマンドを実行するためのコマンドですが、  
+> -itオプションとbashコマンドと併用することでコンテナの中に入るのによく使います。
+
 
 入れたら
 ```
 mysql -uroot -p
 ```
 
+これでMySQLが使えるはずです。
+
+
 不要になったら
 ```
-docker stop sample_mysql
-docker rm sample_mysql
+docker stop sample_mysql      // コンテナの停止
+// docker start sample_mysql  // コンテナの起動
+docker rm sample_mysql        // コンテナの削除
 ```
 
-```
-docker start sample_mysql
-```
+## Dockerfileからイメージを作成する
+
 
 ## docker-compose
 
