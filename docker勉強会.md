@@ -50,7 +50,7 @@ dockerコンテナの実行
 docker run hello-world
 ```
 
-## MySQLのコンテナを実行する(DockerHubのイメージを利用する)
+## MySQLのコンテナを実行する(DockerHubのイメージを利用する①)
 
 MySQL dockerとかで検索すると、
 DockerHubにMySQLの公式イメージが見つかるので使い方を確認する
@@ -105,7 +105,25 @@ docker stop sample_mysql      // コンテナの停止
 docker rm sample_mysql        // コンテナの削除
 ```
 
+## Pythonのコンテナを実行する(DockerHubのイメージを利用する②)
+https://hub.docker.com/_/python/
+
+Dockerfile書いて使うみたいに書いてるけど一旦docker runしてみる
+
+```
+docker run -it --rm --name python_sample python
+```
+
+|オプション|意味|
+|--|--|
+|-it|コンソールに実行結果を出力する（-iが標準入力の割り当て、-tが疑似ttyを割り当てる。ほとんどセットで使う）|
+|--rm|コンテナ実行後、そのコンテナを削除する|
+
+
+Pythonが入ってなくともPythonが実行できる・・・！
+
 ## Dockerfileからイメージを作成する
+
 
 
 ## docker-compose
