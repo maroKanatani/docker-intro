@@ -174,10 +174,32 @@ docker run --name maro-python -p 5000:5000 -d my-python
 ```
 
 ## docker-compose
+[ここのファイル](https://github.com/Kanatani28/docker-intro/tree/master/dc_sample)
+docker-compose.yml書く-> docker-composeコマンド実行
 
+### docker-compose.ymlの設定値
 
+|設定値|意味|
+|--|--|
+|version|docker-composeのバージョン（最近は3）|
+|services|起動するサービス（コンテナ）を設定する|
+|image|イメージを設定する|
+|ports|ポートを設定する|
+|environment|環境変数を設定する|
+|valumes|ボリュームを設定する|
+|build|Dockerfileのあるディレクトリを設定する|
+|depends_on|事前に起動しておくサービスを設定する|
 
+### docker-composeコマンド
 
-VS CodeのRemote Containerってプラグインが結構素敵
+|コマンド|意味|
+|--|--|
+|up|環境の立ち上げ|
+|down|環境を落とす(コンテナの停止と削除)|
 
-dockerコマンドでpandocを使う（使い捨ての良さを活かして）
+## （余談）個人的にいいなと思うDockerの使い方
+- 同じ環境の配布
+- VS CodeのRemote Containerってプラグインが結構素敵
+- dockerコマンドでpandocを使う（使い捨ての良さを活かして）
+- 自動テスト時の環境構築（テスト実行時に毎回同じ環境が立ち上がる）
+- 開発環境と本番環境に差異がほぼなくなる
