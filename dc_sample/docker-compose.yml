@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    ports:
+      - '33306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    valumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+      # 永続化する場合
+      #- ./db/data:/var/lib/mysql
+  app:
+    build: app
+    ports:
+      - '5000:5000'
