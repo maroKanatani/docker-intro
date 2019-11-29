@@ -78,7 +78,7 @@ docker run --name sample_mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
 |--|--|
 |--name|名前を付ける|
 |-e|環境変数を設定する|
-|-d|デタッチドモードで起動する（これ無しだと起動してコンテナが実行された後停止してしまう）|
+|-d|デタッチドモードで起動する（バックグラウンド起動）|
 
 #### 何が起きたのか
 
