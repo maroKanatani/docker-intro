@@ -1,3 +1,5 @@
 Flask
 sqlalchemy
+cryptography
 PyMySQL
+PyMySQL[rsa]

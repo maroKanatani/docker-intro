@@ -4,13 +4,21 @@ services:
     image: mysql
     ports:
       - '33306:3306'
+    expose:
+      - '3306'
     environment:
       MYSQL_ROOT_PASSWORD: root
-    valumes:
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
       - ./db/init:/docker-entrypoint-initdb.d
       # 永続化する場合
       #- ./db/data:/var/lib/mysql
+    container_name: sample_db
+
   app:
     build: app
     ports:
       - '5000:5000'
+    depends_on:
+      - db
