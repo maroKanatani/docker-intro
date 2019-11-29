@@ -173,8 +173,9 @@ docker build [Dockerファイルのある場所]
 docker run --name maro-python -p 5000:5000 -d my-python
 ```
 
-## docker-compose
+## docker-composeで複数のコンテナを利用する
 [ここのファイル](https://github.com/Kanatani28/docker-intro/tree/master/dc_sample)
+#### 流れ
 docker-compose.yml書く-> docker-composeコマンド実行
 
 ### docker-compose.ymlの設定値
