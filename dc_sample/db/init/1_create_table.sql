@@ -9,3 +9,4 @@ INSERT INTO users(
 ) VALUES(
     'scott'
 );
+GRANT ALL ON dc_db.* TO test;

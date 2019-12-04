@@ -5,7 +5,7 @@ app = Flask(__name__)
  
 @app.route('/')
 def hello():
-    url = 'mysql+pymysql://test:test@0.0.0.0:3306/dc_db?charset=utf8'
+    url = 'mysql+pymysql://test:test@sample_db:3306/dc_db?charset=utf8'
     engine = sa.create_engine(url, echo=True)
     rows = engine.execute('SELECT * FROM users')
 
